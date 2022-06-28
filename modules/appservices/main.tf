@@ -1,6 +1,6 @@
 
-  
- terraform {
+
+terraform {
   required_providers {
     azurerm = {
       source  = "hashicorp/azurerm"
@@ -8,10 +8,10 @@
     }
   }
   required_version = ">= 0.14.9"
- }
- 
+}
 
-  # Create the Linux App Service Plan
+
+# Create the Linux App Service Plan
 resource "azurerm_app_service_plan" "appserviceplan" {
   name                = "webapp-asp-bfjappplan"
   location            = var.app_location
