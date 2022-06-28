@@ -13,7 +13,7 @@
 
   # Create the Linux App Service Plan
 resource "azurerm_app_service_plan" "appserviceplan" {
-  name                = "webapp-asp-101010109"
+  name                = "webapp-asp-bfjappplan"
   location            = var.app_location
   resource_group_name = var.azure_rgname
   sku {
@@ -24,7 +24,6 @@ resource "azurerm_app_service_plan" "appserviceplan" {
 
 # Create the web app, pass in the App Service Plan ID, and deploy code from a public GitHub repo
 resource "azurerm_app_service" "webapp" {
-  #name                = "webapp-${random_integer.ri.result}"
   name                = var.appname
   location            = var.app_location
   resource_group_name = var.azure_rgname
