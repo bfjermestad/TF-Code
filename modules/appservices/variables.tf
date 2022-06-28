@@ -7,7 +7,7 @@ variable "app_azure_rgname" {
 variable "app_location" {
   description = "The location where module demo resource group will be created"
   type        = string
-  default     = "East US"
+  default     = "norwayeast"
 }
 
 

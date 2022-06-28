@@ -24,7 +24,7 @@ provider "azurerm" {
 # Create the resource group
 resource "azurerm_resource_group" "rg" {
   name     = "myResourceGroup-BFJNODEAPP"
-  location = "norway east"
+  location = "norwayeast"
 }
 
 # Create the Linux App Service Plan from module
