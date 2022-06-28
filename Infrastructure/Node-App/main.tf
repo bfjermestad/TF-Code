@@ -28,9 +28,9 @@ resource "azurerm_resource_group" "rg" {
 }
 
 # Create the Linux App Service Plan from module
-module "appserviceplan" {
+module "myappserviceplan" {
 source = "git::https://github.com/bfjermestad/tf-code//modules/appservices"
-azure_rgname = azurerm_resource_group.rg.name
+azure_rgname = "myResourceGroup-BFJNODEAPP"
 location = "norwayeast"
 appname = "bfjnodeapp"
 }
