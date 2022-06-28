@@ -16,8 +16,11 @@ cloud {
   }
 
 }
+
 provider "azurerm" {
-  features {}
+  features {
+    location = "norwayeast"
+  }
 }
 # Generate a random integer to create a globally unique name
 resource "random_integer" "ri" {
@@ -27,8 +30,15 @@ resource "random_integer" "ri" {
 # Create the resource group
 resource "azurerm_resource_group" "rg" {
   name     = "myResourceGroup-${random_integer.ri.result}"
-  location = "eastus"
 }
+
+# Create the Linux App Service Plan from module
+module "appserviceplan" {
+source = "git::https://github.com/bfjermestad/tf-code/modules/appservices"
+azure_rg_name = var.azure_rg_name
+location = var.location
+}
+
 # Create the Linux App Service Plan
 resource "azurerm_app_service_plan" "appserviceplan" {
   name                = "webapp-asp-${random_integer.ri.result}"
