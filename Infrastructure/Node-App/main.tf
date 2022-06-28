@@ -8,7 +8,7 @@ terraform {
   }
   required_version = ">= 0.14.9"
 
-cloud {
+  cloud {
     organization = "Fjermestad"
     workspaces {
       name = "TF-Code"
@@ -24,13 +24,13 @@ provider "azurerm" {
 
 # Create the resource group
 resource "azurerm_resource_group" "rg" {
-  name     = "myResourceGroup-BFJNODEAPP"
+  name = "myResourceGroup-BFJNODEAPP"
 }
 
 # Create the Linux App Service Plan from module
 module "myappserviceplan" {
-source = "git::https://github.com/bfjermestad/tf-code//modules/appservices"
-location = "norwayeast"
-azure_rgname = "myResourceGroup-BFJNODEAPP"
-appname = "bfjnodeapp"
+  source       = "git::https://github.com/bfjermestad/tf-code//modules/appservices"
+  location     = "norwayeast"
+  azure_rgname = "myResourceGroup-BFJNODEAPP"
+  appname      = "bfjnodeapp"
 }
