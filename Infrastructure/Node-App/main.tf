@@ -25,12 +25,13 @@ provider "azurerm" {
 # Create the resource group
 resource "azurerm_resource_group" "rg" {
   name = "myResourceGroup-BFJNODEAPP"
+  location = "norway east"
 }
 
 # Create the Linux App Service Plan from module
 module "myappserviceplan" {
   source       = "github.com/bfjermestad/tf-code//modules/appservices"
-  app_location     = "norwayeast"
+  app_location     = "norway east"
   app_azure_rgname = "myResourceGroup-BFJNODEAPP"
   app_appname      = "bfjnodeapp"
 }
