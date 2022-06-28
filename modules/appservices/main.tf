@@ -15,7 +15,7 @@ terraform {
 resource "azurerm_app_service_plan" "appserviceplan" {
   name                = "webapp-asp-bfjappplan"
   location            = var.app_location
-  resource_group_name = var.azure_rgname
+  resource_group_name = var.app_azure_rgname
   sku {
     tier = "Free"
     size = "F1"
@@ -26,7 +26,7 @@ resource "azurerm_app_service_plan" "appserviceplan" {
 resource "azurerm_app_service" "webapp" {
   name                = var.appname
   location            = var.app_location
-  resource_group_name = var.azure_rgname
+  resource_group_name = var.app_azure_rgname
   app_service_plan_id = azurerm_app_service_plan.appserviceplan.id
   source_control {
     repo_url           = "https://github.com/bfjermestad/nodeapp"
