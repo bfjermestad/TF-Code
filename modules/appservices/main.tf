@@ -24,7 +24,7 @@ resource "azurerm_app_service_plan" "appserviceplan" {
 
 # Create the web app, pass in the App Service Plan ID, and deploy code from a public GitHub repo
 resource "azurerm_app_service" "webapp" {
-  name                = var.appname
+  name                = var.app_appname
   location            = var.app_location
   resource_group_name = var.app_azure_rgname
   app_service_plan_id = azurerm_app_service_plan.appserviceplan.id
