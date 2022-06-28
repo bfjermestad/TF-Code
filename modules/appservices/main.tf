@@ -13,7 +13,7 @@
 
   # Create the Linux App Service Plan
 resource "azurerm_app_service_plan" "appserviceplan" {
-  name                = "webapp-asp-${random_integer.ri.result}"
+  name                = "webapp-asp-101010109"
   location            = var.app_location
   resource_group_name = var.azure_rgname
   sku {

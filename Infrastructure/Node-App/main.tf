@@ -14,7 +14,6 @@ terraform {
       name = "TF-Code"
     }
   }
-
 }
 
 provider "azurerm" {
